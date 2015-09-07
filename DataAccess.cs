@@ -56,6 +56,14 @@ namespace ResponseService
             }
         }
 
+        public void LogMessage(string taskid, string m_type, string code, string notes, string entryNo, string message, string eportNo, DateTime noticeTime)
+        {
+            string sql = @"insert into Messages (TASK_ID, RETURN_TYPE, RETURN_CODE, RETURN_INFO, ENTRY_NO, MESSAGE, EPORT_NO, NOTICE_TIME)
+                                         VALUES(@TASK_ID,@RETURN_TYPE,@RETURN_CODE,@RETURN_INFO,@ENTRY_NO,@MESSAGE,@EPORT_NO,@NOTICE_TIME)";
+            var cmd = Db.GetSqlStringCommand(sql);
+
+        }
+
         /// <summary>
         ///  通过taskid 获取关检关联号
         /// </summary>
